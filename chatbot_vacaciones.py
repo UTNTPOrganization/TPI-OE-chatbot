@@ -15,43 +15,50 @@ def chatbot_principal():
         id_empleado = ""
         nombre_empleado = ""
         dias_disponibles = 0
+        dias_solicitados = 0
+        fecha_inicio = ""
 
         while solicitud_activa:
 
-            bot_imprimir("Ingresá tu ID de empleado (ej: EMP002) o '/cancelar':")
-
             id_input = input(f"{COLOR_USER}[Vos]: {COLOR_RESET}").strip().upper()
 
-            if id_input == "/CANCELAR":
-                bot_imprimir("❌ Solicitud abortada por el usuario.")
+            if id_input not in empleados:
+                continue
+
+            id_empleado = id_input
+            nombre_empleado = empleados[id_input]["nombre"]
+            dias_disponibles = empleados[id_input]["disponibles"]
+
+            if dias_disponibles <= 0:
                 solicitud_activa = False
                 break
 
-            elif id_input == "/AYUDA":
-                mostrar_ayuda()
-                continue
+            # --- DIAS ---
+            while True:
 
-            elif id_input == "/EMPLEADOS":
-                mostrar_empleados_consola(empleados)
-                continue
+                dias_input = input(f"{COLOR_USER}[Vos]: {COLOR_RESET}").strip()
 
-            sys_imprimir(f"Validando ID '{id_input}' en empleados.txt...")
+                try:
+                    dias_solicitados = int(dias_input)
+                    if dias_solicitados <= 0:
+                        continue
+                except ValueError:
+                    continue
 
-            if id_input in empleados:
-
-                id_empleado = id_input
-                nombre_empleado = empleados[id_input]["nombre"]
-                dias_disponibles = empleados[id_input]["disponibles"]
-
-                bot_imprimir(f"Empleado: {nombre_empleado}")
-                bot_imprimir(f"Saldo disponible: {dias_disponibles} días")
-
-                if dias_disponibles <= 0:
-                    bot_imprimir("⚠️ Saldo insuficiente.")
-                    solicitud_activa = False
-                    break
+                if dias_solicitados > dias_disponibles:
+                    continue
 
                 break
 
-            else:
-                bot_imprimir("❌ Error: ID no encontrado.")
+            # --- FECHA ---
+            while True:
+
+                fecha_input = input(f"{COLOR_USER}[Vos]: {COLOR_RESET}").strip()
+
+                es_valida, resultado = validar_fecha(fecha_input)
+
+                if es_valida:
+                    fecha_inicio = resultado
+                    break
+
+            break
