@@ -1,0 +1,5 @@
+EMP001|Juan Perez|10|0|10
+EMP002|Ana Lopez|20|6|14
+EMP003|Carlos Gomez|15|15|0
+EMP004|Maria Rodriguez|30|12|18
+EMP005|Sofia Martinez|14|4|10
