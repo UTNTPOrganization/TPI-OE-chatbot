@@ -1,7 +1,7 @@
 # INFORME TRABAJO PRÁCTICO INTEGRADOR: ORGANIZACIÓN EMPRESARIAL
 **Cátedra:** Organización Empresarial  
 **Tecnicatura Universitaria en Programación a Distancia (TUPaD) – UTN**  
-**Autores:** [Ingresar Nombre del Estudiante / Integrantes]  
+**Autores:** [Gabriel Di Lorenzo / Alejandro Fernández]  
 **Año:** 2026  
 
 ---
