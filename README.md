@@ -6,8 +6,10 @@ El proyecto consiste en la identificación de un proceso de negocio administrati
 
 ---
 
-Trabajo Colaborativo, Commits y Trazabilidad
-Integrantes
+## Trabajo Colaborativo, Commits y Trazabilidad
+
+### Integrantes
+
 Alejandro Fernández (PROY-1)
 
 Responsable principal de:
@@ -25,10 +27,13 @@ Prefijo de commits:
 
 Ejemplos:
 
-git commit -m "[PROY-1] Implementa estado de validación de empleado"
-git commit -m "[PROY-1] Agrega gateway de saldo suficiente"
-git commit -m "[PROY-1] Implementa confirmación final de solicitud"
-Gabriel Di Lorenzo (PROY-2)
+```text
+git commit -m "[PROY-1] Implementa estado de validación de empleado"  
+git commit -m "[PROY-1] Agrega gateway de saldo suficiente"  
+git commit -m "[PROY-1] Implementa confirmación final de solicitud"  
+```
+
+Gabriel Di Lorenzo (PROY-2)  
 
 Responsable principal de:
 
@@ -45,40 +50,53 @@ Prefijo de commits:
 
 Ejemplos:
 
-git commit -m "[PROY-2] Implementa carga de empleados desde archivo"
-git commit -m "[PROY-2] Agrega persistencia de solicitudes"
-git commit -m "[PROY-2] Implementa validación de fechas"
-Evidencia de Autoría
+```text
+git commit -m "[PROY-2] Implementa carga de empleados desde archivo"  
+git commit -m "[PROY-2] Agrega persistencia de solicitudes"  
+git commit -m "[PROY-2] Implementa validación de fechas"  
+```
+
+### Evidencia de Autoría
 
 La trazabilidad del proyecto puede verificarse mediante:
 
-Historial completo de commits en GitHub.
-Uso de prefijos PROY-1 y PROY-2.
-Evolución incremental del código.
-Relación entre responsabilidades declaradas y componentes desarrollados.
+Historial completo de commits en GitHub.  
+Uso de prefijos PROY-1 y PROY-2.  
+Evolución incremental del código.  
+Relación entre responsabilidades declaradas y componentes desarrollados.  
 
 Cada integrante deberá poder explicar durante la defensa oral la parte del sistema bajo su responsabilidad y su relación con el modelo BPMN propuesto.
 
-🌿 Estrategia de Ramas (Branches) y Uso de Personal Access Token (PAT)
+🌿 Estrategia de Ramas y Uso de Personal Access Token (PAT)
+## Estrategia de Ramas (Branches) y Uso de Personal Access Token (PAT)
 Objetivo
 
 Para facilitar el trabajo colaborativo, mantener la trazabilidad individual y evitar conflictos de código, cada integrante desarrollará sus modificaciones en una rama independiente antes de integrarlas a la rama principal del proyecto.
 
 Estructura de Ramas
-Rama Principal
+
+**Rama Principal:** `main`
+- Contiene únicamente versiones estables e integradas del proyecto.
+### Estructura de Ramas
+Rama Principal  
 main
 
 Contiene únicamente versiones estables e integradas del proyecto.
 
+**Rama de Alejandro (PROY-1):** `desarrollo-main`
+- Creación: `git checkout -b desarrollo-main`
+
+**Rama de Gabriel (PROY-2):** `desarrollo-auxiliares`
+- Creación: `git checkout -b desarrollo-auxiliares`
 Alejandro Fernández (PROY-1)
 
 Responsable de:
 
-Máquina de estados conversacional.
-Flujo principal del chatbot.
-Integración BPMN ↔ Código.
-Caminos felices e infelices.
-Validación funcional del proceso completo.
+Máquina de estados conversacional.  
+Flujo principal del chatbot.  
+Integración BPMN ↔ Código.  
+Caminos felices e infelices.  
+Validación funcional del proceso completo.  
 
 Rama de trabajo:
 
@@ -105,6 +123,26 @@ Creación de la rama:
 
 git checkout -b desarrollo-auxiliares
 Flujo de Trabajo
+
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/UTNTPOrganization/TPI-OE-chatbot.git
+   cd TPI-OE-chatbot
+   ```
+
+2. **Actualizar la rama principal**
+   ```bash
+   git checkout main
+   git pull origin main
+   ```
+
+3. **Cambiar a la rama correspondiente**
+   - Alejandro: `git checkout desarrollo-main`
+   - Gabriel: `git checkout desarrollo-auxiliares`
+
+4. **Registrar cambios**
+   - Alejandro: `git add . && git commit -m "[PROY-1] Implementa validación de empleado"`
+   - Gabriel: `git add . && git commit -m "[PROY-2] Implementa persistencia de solicitudes"`
 1. Clonar el repositorio
 git clone https://github.com/UTNTPOrganization/TPI-OE-chatbot.git
 cd TPI-OE-chatbot
@@ -120,52 +158,64 @@ git checkout desarrollo-main
 Gabriel:
 
 git checkout desarrollo-auxiliares
+
 4. Registrar cambios
 
 Alejandro:
 
-git add .
+git add .  
 git commit -m "[PROY-1] Implementa validación de empleado"
 
 Gabriel:
 
-git add .
+git add .  
 git commit -m "[PROY-2] Implementa persistencia de solicitudes"
+
 Uso de Personal Access Token (PAT)
 
 La autenticación con GitHub se realiza mediante un Personal Access Token (PAT) Classic generado individualmente por cada integrante.
 
-Push de la rama de Alejandro
-git push https://USUARIO_GITHUB:PAT_TOKEN@github.com/UTNTPOrganization/TPI-OE-chatbot.git desarrollo-main
-
-Ejemplo:
-
+**Push de la rama de Alejandro:**
+```bash
 git push https://AlejandroFernandez:PAT_TOKEN@github.com/UTNTPOrganization/TPI-OE-chatbot.git desarrollo-main
-Push de la rama de Gabriel
-git push https://USUARIO_GITHUB:PAT_TOKEN@github.com/UTNTPOrganization/TPI-OE-chatbot.git desarrollo-auxiliares
+```
 
-Ejemplo:
-
+**Push de la rama de Gabriel:**
+```bash
 git push https://GabrielDiLorenzo:PAT_TOKEN@github.com/UTNTPOrganization/TPI-OE-chatbot.git desarrollo-auxiliares
-Integración Final
+```
 
-Una vez finalizadas las tareas de cada integrante, las ramas se integrarán en la rama principal.
-
+**Integración Final:**
+```bash
 git checkout main
-
 git merge desarrollo-main
 git merge desarrollo-auxiliares
+Una vez finalizadas las tareas de cada integrante, las ramas se integrarán en la rama principal.
+
+git checkout main  
+git merge desarrollo-main  
+git merge desarrollo-auxiliares  
 
 Publicación de la versión final:
 
 git push https://USUARIO_GITHUB:PAT_TOKEN@github.com/UTNTPOrganization/TPI-OE-chatbot.git main
+```
+
 Buenas Prácticas
+- Cada integrante utiliza su propio PAT.
+- Nunca se publica el valor real del PAT.
+- Nunca se comparte el PAT con terceros.
+- Los commits deben incluir el prefijo correspondiente: `[PROY-1]` para Alejandro Fernández y `[PROY-2]` para Gabriel Di Lorenzo.
+- La rama main debe mantenerse estable durante todo el desarrollo.
+- Todo cambio debe quedar registrado mediante commits descriptivos.
 Cada integrante utiliza su propio PAT.
 Nunca se publica el valor real del PAT.
 Nunca se comparte el PAT con terceros.
+
 Los commits deben incluir el prefijo correspondiente:
-[PROY-1] Alejandro Fernández.
+[PROY-1] Alejandro Fernández.  
 [PROY-2] Gabriel Di Lorenzo.
+
 La rama main debe mantenerse estable durante todo el desarrollo.
 Todo cambio debe quedar registrado mediante commits descriptivos.
 Evidencia para la Defensa Oral
@@ -187,11 +237,11 @@ Cada integrante deberá poder explicar durante la defensa oral la parte del sist
 
 El proyecto está diseñado de forma modular y auto-contenido, utilizando exclusivamente tecnologías estándar y locales de primer año de programación:
 
-*   **`chatbot_vacaciones.py`**: Código fuente principal en Python. Contiene el bucle de la máquina de estados conversacional, validaciones avanzadas (con la librería `datetime`) y gestión de errores mediante `try-except`.
-*   **`empleados.txt`**: Archivo plano estructurado con tuberías (`|`) que actúa como base de datos local de la empresa. Almacena los IDs de empleado, nombres, días totales, consumidos y disponibles.
-*   **`solicitudes.txt`**: Registro histórico persistente donde el chatbot graba las solicitudes aprobadas en tiempo real.
-*   **`bpmn_diagram.svg`**: Diagrama de procesos BPMN 2.0 vectorial de alta resolución. Contiene los carriles de *Empleado* y *Chatbot*, eventos de inicio/fin, compuertas decisorias y tareas de servicio.
-*   **`informe_tfi.md`**: Informe académico formal redactado minuciosamente con todas las pautas teóricas y técnicas exigidas por la UTN (análisis As-Is vs To-Be, desglose de carriles, diccionario de datos y justificación de herramientas de IA), listo para copiar a Microsoft Word y exportar a PDF en formato Times New Roman 11pt.
+- **`chatbot_vacaciones.py`**: Código fuente principal en Python. Contiene el bucle de la máquina de estados conversacional, validaciones avanzadas (con la librería `datetime`) y gestión de errores mediante `try-except`.
+- **`empleados.txt`**: Archivo plano estructurado con tuberías (`|`) que actúa como base de datos local de la empresa. Almacena los IDs de empleado, nombres, días totales, consumidos y disponibles.
+- **`solicitudes.txt`**: Registro histórico persistente donde el chatbot graba las solicitudes aprobadas en tiempo real.
+- **`bpmn_diagram.svg`**: Diagrama de procesos BPMN 2.0 vectorial de alta resolución. Contiene los carriles de Empleado y Chatbot, eventos de inicio/fin, compuertas decisorias y tareas de servicio.
+- **`informe_tfi.md`**: Informe académico formal redactado minuciosamente con todas las pautas teóricas y técnicas exigidas por la UTN (análisis As-Is vs To-Be, desglose de carriles, diccionario de datos y justificación de herramientas de IA), listo para copiar a Microsoft Word y exportar a PDF en formato Times New Roman 11pt.
 
 ---
 
@@ -199,13 +249,13 @@ El proyecto está diseñado de forma modular y auto-contenido, utilizando exclus
 
 Para iniciar el simulador conversacional en tu computadora local:
 
-1.  Asegúrate de tener instalado **Python 3** en tu sistema.
-2.  Abre la terminal o consola de comandos (Command Prompt / PowerShell / Bash) en este directorio.
-3.  Ejecuta el siguiente comando:
-    ```bash
-    python chatbot_vacaciones.py
-    ```
-4.  ¡Listo! El chatbot se iniciará inmediatamente con una interfaz visual coloreada directamente en la terminal.
+1. Asegúrate de tener instalado **Python 3** en tu sistema.
+2. Abre la terminal o consola de comandos (Command Prompt / PowerShell / Bash) en este directorio.
+3. Ejecuta el siguiente comando:
+   ```bash
+   python chatbot_vacaciones.py
+   ```
+4. ¡Listo! El chatbot se iniciará inmediatamente con una interfaz visual coloreada directamente en la terminal.
 
 ---
 
@@ -213,9 +263,9 @@ Para iniciar el simulador conversacional en tu computadora local:
 
 El chatbot está diseñado con un controlador inteligente de comandos que puedes tipear en **cualquier momento** de la conversación para facilitar la simulación y evaluación de los profesores:
 
-*   **`/ayuda`**: Imprime en pantalla la guía de comandos y reglas de uso del chatbot.
-*   **`/empleados`**: Lee el archivo `empleados.txt` en tiempo real y muestra una tabla limpia en consola con los días de vacaciones acumulados de cada empleado de prueba.
-*   **`/cancelar`**: Cancela y aborta la solicitud en curso de forma segura, limpia la sesión y vuelve al menú de bienvenida del asistente virtual.
+- **`/ayuda`**: Imprime en pantalla la guía de comandos y reglas de uso del chatbot.
+- **`/empleados`**: Lee el archivo `empleados.txt` en tiempo real y muestra una tabla limpia en consola con los días de vacaciones acumulados de cada empleado de prueba.
+- **`/cancelar`**: Cancela y aborta la solicitud en curso de forma segura, limpia la sesión y vuelve al menú de bienvenida del asistente virtual.
 
 ---
 
@@ -223,16 +273,28 @@ El chatbot está diseñado con un controlador inteligente de comandos que puedes
 
 Para demostrar la solidez de tu software ante los profesores en el coloquio final, te recomendamos seguir estos caminos de testeo:
 
-### 🟢 1. El Camino Feliz (Happy Path)
+### 🟢 1. El Camino Feliz
 1.  Escribe `si` para iniciar el trámite.
 2.  Ingresa el ID `EMP002` (corresponde a Ana López, quien tiene 14 días disponibles).
 3.  Solicita **`5`** días de vacaciones.
 4.  Ingresa una fecha futura válida, por ejemplo: **`15/12/2026`**.
 5.  Confirma escribiendo **`si`** en la pregunta final.
+### 🟢 1. El Camino Feliz (Happy Path)
+1.  Escribe `si` para iniciar el trámite.  
+2.  Ingresa el ID `EMP002` (corresponde a Ana López, quien tiene 14 días disponibles).  
+3.  Solicita **`5`** días de vacaciones.  
+4.  Ingresa una fecha futura válida, por ejemplo: **`15/12/2026`**.  
+5.  Confirma escribiendo **`si`** en la pregunta final.  
 6.  *Verificación:* Observa cómo el sistema descuenta los 5 días de Ana López en `empleados.txt` (pasando a tener 9 disponibles) y registra de forma permanente la transacción en `solicitudes.txt` con el ID autoincremental `SOL001` y la marca de tiempo exacta.
 
+### 🔴 2. Manejo de Errores y Robustez
+
+- **ID Inexistente:** Escribe `EMP999` y observa cómo el bot te informa del error al consultar el archivo y te invita a reintentar.
+- **Entrada de Texto Inválida:** Cuando el bot te pregunte los días, escribe `"cinco"` o `"diez"`. Verás cómo el bloque `try-except` captura la excepción sin interrumpir la ejecución del programa y te pide ingresar un entero válido.
+- **Saldo Insuficiente:** Ingresa como empleado `EMP001` (Juan Pérez, con 10 días libres) y solicita **`15`** días. La lógica condicional impedirá el avance y te obligará a pedir un número menor o igual a tu saldo real.
+- **Fecha Pasada:** Intenta ingresar la fecha `01/01/2020` o un formato incorrecto como `15-12-2026`. La validación de `datetime` rechazará la entrada obligándote a cumplir con las normas de negocio establecidas.
 ### 🔴 2. Caminos Infelices (Manejo de Errores y Robustez)
-*   **ID Inexistente:** Escribe `EMP999` y observa cómo el bot te informa del error al consultar el archivo y te invita a reintentar.
-*   **Entrada de Texto Invalida:** Cuando el bot te pregunte los días, escribe `"cinco"` o `"diez"`. Verás cómo el bloque `try-except` captura la excepción sin interrumpir la ejecución del programa y te pide ingresar un entero válido.
-*   **Saldo Insuficiente:** Ingresa como empleado `EMP001` (Juan Pérez, con 10 días libres) y solicita **`15`** días. La lógica condicional impedirá el avance y te obligará a pedir un número menor o igual a tu saldo real.
+*   **ID Inexistente:** Escribe `EMP999` y observa cómo el bot te informa del error al consultar el archivo y te invita a reintentar.  
+*   **Entrada de Texto Invalida:** Cuando el bot te pregunte los días, escribe `"cinco"` o `"diez"`. Verás cómo el bloque `try-except` captura la excepción sin interrumpir la ejecución del programa y te pide ingresar un entero válido.  
+*   **Saldo Insuficiente:** Ingresa como empleado `EMP001` (Juan Pérez, con 10 días libres) y solicita **`15`** días. La lógica condicional impedirá el avance y te obligará a pedir un número menor o igual a tu saldo real.  
 *   **Fecha Pasada:** Intenta ingresar la fecha `01/01/2020` o un formato incorrecto como `15-12-2026`. La validación de `datetime` rechazará la entrada obligándote a cumplir con las normas de negocio establecidas.
